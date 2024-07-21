@@ -6,7 +6,7 @@ import { Theme } from "../../assets/Theme"
 export default KanjiScreen = ({ navigation }) => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text> Dinh Quan </Text>
+            <Text> Dinh Quan Again! </Text>
             <View style={styles.searchBox}>
                 <Image source={require('../../assets/search.png')} style={styles.image} />
                 <TextInput style={styles.searchInput} />
