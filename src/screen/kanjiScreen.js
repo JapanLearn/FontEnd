@@ -6,7 +6,10 @@ import { Theme } from "../../assets/Theme"
 export default KanjiScreen = ({ navigation }) => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text>Nguyễn Văn Tuấn</Text>
+            <View style={styles.searchBox}>
+                <Image source={require('../../assets/search.png')} style={styles.image} />
+                <TextInput style={styles.searchInput} />
+            </View>
             {data.Kanji.map((item, index) =>
             (
                 <CustomBox title={item.kanji} desc={item.meaning} />
