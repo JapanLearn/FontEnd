@@ -1,0 +1,82 @@
+{
+    "vocabulary": [
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたしたち ",
+            "kanji": "私たち",
+            "meaning": "Chúng tôi, chúng ta…(ngôi thứ nhất số nhiều)"
+        },
+        {
+            "word": "あなた",
+            "meaning": "Bạn, ông, bà, anh, chị, cô, chú (ngôi thứ hai số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        },
+        {
+            "word": "わたし",
+            "kanji": "私",
+            "meaning": "Tôi (ngôi thứ nhất số ít)"
+        }
+    ],
+    "grammar": [
+        {
+            "grammar": "N1 は N2 です",
+            "article_id": 0
+        },
+        {
+            "grammar": "N は いくらですか。",
+            "article_id": 1
+        },
+        {
+            "grammar": "今～時 ～ 分 です",
+            "article_id": 2
+        }
+    ],
+    "Kanji": [
+        {
+            "word": "N1はN2です",
+            "meaning": "Hello"
+        },
+        {
+            "word": "こんにちは",
+            "meaning": "Hello"
+        }
+    ]
+}
