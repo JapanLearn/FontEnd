@@ -6,11 +6,7 @@ import { Theme } from "../../assets/Theme"
 export default KanjiScreen = ({ navigation }) => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Text> Its Van Tuan again baby !!!! </Text>
-            <View style={styles.searchBox}>
-                <Image source={require('../../assets/search.png')} style={styles.image} />
-                <TextInput style={styles.searchInput} />
-            </View>
+            <Text> Dinh Quan Again! </Text>
             {data.Kanji.map((item, index) =>
             (
                 <CustomBox title={item.kanji} desc={item.meaning} />
