@@ -12,11 +12,7 @@ export default VocabularyScreen = ({ navigation }) => {
             </View>
             {data.vocabulary.map((item, index) =>
             (
-                <Pressable
-                    key={index.toString()}
-                    onPress={() => navigation.navigate('GrammarDetail')}>
-                    <CustomBox title={item.word} desc={item.meaning} />
-                </Pressable>
+                <CustomBox title={item.word} desc={item.meaning} />
             ))}
         </ScrollView>
     )
