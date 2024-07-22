@@ -1,9 +1,15 @@
 import { Image, Pressable, ScrollView, StyleSheet, TextInput, View, Text } from "react-native"
-import CustomBox from "../components/CustomBox"
 import data from "../data/data.json"
 import { Theme } from "../../assets/Theme"
+import CustomBox2 from "../components/CustomBox2"
 
 export default GrammarScreen = ({ navigation }) => {
+    const CustomView = ({ title }) => (
+        <View style={styles.view}>
+            <Text style={styles.view_title}>{title}</Text>
+        </View>
+    )
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.searchBox}>
@@ -16,8 +22,7 @@ export default GrammarScreen = ({ navigation }) => {
                 <Pressable
                     key={index.toString()}
                     onPress={() => navigation.navigate('GrammarDetail', { item })}>
-                    <CustomBox title={item.grammar} desc={item.meaning} />
-                    <Text>{JSON.stringify(item.article_id)}</Text>
+                    <CustomBox2 title={item.grammar} desc={item.meaning} />
                 </Pressable>
             ))}
         </ScrollView>
@@ -28,6 +33,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         width: '100%',
+        height: "100%",
         backgroundColor: Theme.colors.background
     },
     searchBox: {
