@@ -1,5 +1,4 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native"
-import CustomBox from "../components/CustomBox"
 import data from "../data/data.json"
 import { Theme } from "../../assets/Theme"
 import KanjiCustomBox from "../components/KanjiCustomBox"
@@ -13,7 +12,7 @@ export default KanjiScreen = ({ navigation }) => {
             </View>
             {data.Kanji.map((item) =>
             (
-                <KanjiCustomBox key={item.id} title={item.kanji} pronounce = {item.pronounce}desc={item.meaning} />
+                <KanjiCustomBox key={item.id} title={item.kanji} pronounce={item.pronounce} desc={item.meaning} />
             ))}
         </ScrollView>
     )
