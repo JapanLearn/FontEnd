@@ -11,6 +11,10 @@ const fontSizes = {
     large: 20,
 };
 
+const fontFamily = {
+    font : "a"
+}
+
 export const Theme = {
     colors,
     fontSizes,

@@ -1,11 +1,9 @@
 import { View, Text, StyleSheet } from "react-native"
-import { Theme } from "../../assets/Theme"
 
-export default CustomBox = ({ title, desc, ...props }) => {
+export default CustomBox = ({ title, ...props }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.desc}>{desc}</Text>
         </View>
     )
 }
@@ -30,9 +28,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
-    desc: {
-        fontSize: 14,
-        color: '#808080',
-        textAlign: 'center',
-    }
 })
