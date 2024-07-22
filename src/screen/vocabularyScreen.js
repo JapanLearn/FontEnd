@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         backgroundColor: Theme.colors.background
     },
     searchBox: {
-        width: 325,
+        width: "70%",
         height: 50,
         borderRadius: 10,
         backgroundColor: '#758694',
@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
         paddingVertical: 13,
         marginVertical: 7,
         flexDirection: 'row',
+        textAlign:'center',
+        alignItems:'center',
+        // justifyContent:'center'
     },
     searchInput: {
         color: '#FFF8F3',
