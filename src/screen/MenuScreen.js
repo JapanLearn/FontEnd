@@ -11,7 +11,7 @@ export default MenuScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Pressable onPress={() => navigation.navigate('Lesson')}>
+            <Pressable onPress={() => navigation.navigate('Alphabet')}>
                 <CustomBox2 title={'Bài 1'} />
             </Pressable>
             <Pressable onPress={() => navigation.navigate('Lesson')}>

@@ -40,7 +40,7 @@ const CustomImage = ({ source }) => {
     return (
         <Image
             source={source}
-            style={{ width: '100%', aspectRatio: ratio }}
+            style={{ width: '100%', aspectRatio: ratio, borderBottomWidth: 1, }}
             resizeMode="contain"
         />
     );

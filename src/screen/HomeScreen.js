@@ -14,6 +14,29 @@ export default HomeScreen = ({ navigation }) => {
             </View>
             <View style={styles.lowContainer}>
                 <View style={{ paddingTop: 10 }}>
+                    <Text style={styles.text}>Bảng chữ cái</Text>
+                    <View style={styles.row}>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Hiragana')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Hira</Text>
+                        </View>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Alphabet')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Kata</Text>
+                        </View>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Alphabet')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Kanji</Text>
+                        </View>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Alphabet')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Romaji</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+            <View style={styles.lowContainer}>
+                <View style={{ paddingTop: 10 }}>
                     <Text style={styles.text}>Khóa học</Text>
                     <View style={styles.row}>
                         <View style={styles.buttonCtn}>

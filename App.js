@@ -11,6 +11,7 @@ import kanjiScreen from './src/screen/kanjiScreen';
 import listenScreen from './src/screen/listenScreen';
 import testScreen from './src/screen/testScreen';
 import alphabetScreen from './src/screen/alphabetScreen';
+import Hiragana from './src/screen/Hiragana';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="Login" options={{ title: 'Login Screen', headerShown: false }} component={loginScreen} />
         <Stack.Screen name="Lesson" options={{ title: 'Lesson Screen' }} component={lessonScreen} />
         <Stack.Screen name="Alphabet" options={{ title: 'Alphabet Screen', headerShown: false }} component={alphabetScreen} />
+        <Stack.Screen name="Hiragana" options={{ title: 'Screen', headerShown: false }} component={Hiragana} />
         <Stack.Screen name="Vocabulary" options={{ title: 'Vocabulary Screen', headerShown: false }} component={vocabularyScreen} />
         <Stack.Screen name="Grammar" options={{ title: 'Grammar Screen', headerShown: false }} component={grammarScreen} />
         <Stack.Screen name="GrammarDetail" options={{ title: 'Grammar dt Screen', headerShown: false }} component={gmDetailScreen} />
