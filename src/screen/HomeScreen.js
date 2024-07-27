@@ -1,6 +1,5 @@
 import { Text, Pressable, View, StyleSheet, ScrollView } from "react-native"
 import { Theme } from "../../assets/Theme";
-import Line from "../components/Line";
 
 const user = {
     username: 'Nguyễn Trần Đình Quân'
@@ -10,12 +9,12 @@ export default HomeScreen = ({ navigation }) => {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.userCard}>
-                <Text style={styles.userCardtxt}>Xin chào</Text>
+                <Text style={styles.userCardtxt}>Xin chào 1</Text>
                 <Text style={styles.userCardtxt}>{user.username}</Text>
             </View>
             <View style={styles.lowContainer}>
                 <View style={{ paddingTop: 10 }}>
-                    <Text style={styles.text}>Bảng chữ cái</Text>
+                    <Text style={styles.text}>Bảng chữ cái abc</Text>
                     <View style={styles.row}>
                         <View style={styles.buttonCtn}>
                             <Pressable onPress={() => navigation.navigate('Hiragana')} style={styles.button} />

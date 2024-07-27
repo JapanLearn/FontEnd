@@ -3,6 +3,7 @@ import { Image, ScrollView, StyleSheet, TextInput, View } from "react-native";
 import data from "../data/data.json";
 import { Theme } from "../../assets/Theme";
 import Line from "../components/Line";
+import KanjiCustomBox from "../components/KanjiCustomBox";
 
 const KanjiScreen = ({ navigation }) => {
     return (
@@ -11,13 +12,8 @@ const KanjiScreen = ({ navigation }) => {
                 <Image source={require('../../assets/search.png')} style={styles.image} />
                 <TextInput style={styles.searchInput} />
             </View>
-            <Line />
-            <Line />
-            <Line />
-            <Line />
-            <Line />
             {data.Kanji.map((item, index) => (
-                <Line key={index} />
+                <KanjiCustomBox key={index} title={item.kanji} desc={item.meaning} pronounce={item.pronounce} />
             ))}
         </ScrollView>
     );

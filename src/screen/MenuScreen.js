@@ -1,6 +1,5 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native"
 import { Theme, } from "../../assets/Theme"
-import CustomBox2 from "../components/CustomBox2"
 
 export default MenuScreen = ({ navigation, api, ...props }) => {
     const CustomView = ({ title }) => (
