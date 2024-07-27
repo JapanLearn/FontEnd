@@ -1,28 +1,33 @@
-import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native"
-import data from "../data/data.json"
-import { Theme } from "../../assets/Theme"
-import KanjiCustomBox from "../components/KanjiCustomBox"
+// KanjiScreen.js
+import { Image, ScrollView, StyleSheet, TextInput, View } from "react-native";
+import data from "../data/data.json";
+import { Theme } from "../../assets/Theme";
+import Line from "../components/Line";
 
-export default KanjiScreen = ({ navigation }) => {
+const KanjiScreen = ({ navigation }) => {
     return (
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.searchBox}>
                 <Image source={require('../../assets/search.png')} style={styles.image} />
                 <TextInput style={styles.searchInput} />
             </View>
-            {data.Kanji.map((item) =>
-            (
-                <KanjiCustomBox key={item.id} title={item.kanji} pronounce={item.pronounce} desc={item.meaning} />
+            <Line />
+            <Line />
+            <Line />
+            <Line />
+            <Line />
+            {data.Kanji.map((item, index) => (
+                <Line key={index} />
             ))}
         </ScrollView>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         width: '100%',
-        backgroundColor: Theme.colors.background
+        backgroundColor: Theme.colors.background,
     },
     searchBox: {
         width: 325,
@@ -44,4 +49,6 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25,
     },
-})
+});
+
+export default KanjiScreen;

@@ -14,9 +14,6 @@ export default AlphabetScreen = ({ data, ...props }) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.header_title}>Bảng chữ cái Hiragana</Text>
-            </View>
             <FlatList
                 data={data}
                 renderItem={view}
@@ -24,7 +21,7 @@ export default AlphabetScreen = ({ data, ...props }) => {
                 numColumns={5}
                 columnWrapperStyle={styles.list}
                 showsVerticalScrollIndicator={false}
-                ListFooterComponent={<View style={{ height: 80 }} />} // Độ cao này có thể điều chỉnh tùy ý
+                ListFooterComponent={<View style={{ height: 0 }} />}
             />
         </View>
     )

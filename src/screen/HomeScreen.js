@@ -1,5 +1,6 @@
 import { Text, Pressable, View, StyleSheet, ScrollView } from "react-native"
 import { Theme } from "../../assets/Theme";
+import Line from "../components/Line";
 
 const user = {
     username: 'Nguyễn Trần Đình Quân'
@@ -62,7 +63,6 @@ export default HomeScreen = ({ navigation }) => {
                     </View>
                 </View>
             </View>
-
         </ScrollView>
     )
 }
