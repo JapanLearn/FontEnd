@@ -20,7 +20,7 @@ export default LessonScreen = ({ navigation }) => {
                 <Pressable onPress={() => navigation.navigate('Vocabulary')} style={{ marginLeft: 35 }}>
                     <CustomView text={'Từ vựng'} icon={'headphone'} />
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Grammar')} style={{ marginLeft: 'auto', marginRight: 40, }}>
+                <Pressable onPress={() => navigation.navigate('Grammar')} style={{ marginLeft: 'auto', marginRight: 35, }}>
                     <CustomView text={'Ngữ pháp'} icon={'headphone'} />
                 </Pressable>
             </View>
@@ -55,12 +55,12 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 5,
 
-        width: 130,
-        height: 130,
+        width: 140,
+        height: 140,
         marginTop: 25,
         borderRadius: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'flex-end',
+        // alignItems: 'center',
         backgroundColor: '#fff'
     },
     coll: {
@@ -68,6 +68,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     viewText: {
+        flex:1,
+        // backgroundColor:'green',
+        paddingLeft:10,
+        paddingTop:10,
         fontWeight: 'bold',
         fontSize: Theme.fontSizes.medium,
     },
@@ -75,18 +79,9 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
     },
-    viewCircle: {
-        shadowColor: '#171717',
-        shadowOffset: { width: 1, height: 1 },
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        elevation: 5,
-
-        width: 76,
-        height: 76,
-        borderRadius: 38,
+    viewCircle:{
         justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: 10,
+        alignItems:'center',
+        flex:3,
     }
 })
