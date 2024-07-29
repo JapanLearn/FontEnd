@@ -11,9 +11,6 @@ export default TestScreen = () => {
 
     return (
         <View>
-            <View style={styles.header}>
-                <Text style={styles.header_title}>Bài kiểm tra</Text>
-            </View>
             <View style={styles.container}>
                 <FlatList
                     data={data}
@@ -41,17 +38,5 @@ const styles = StyleSheet.create(
             borderWidth: 1,
             borderColor: 'red'
         },
-        header: {
-            width: '100%',
-            height: 75,
-            backgroundColor: 'white',
-            borderBottomWidth: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        header_title: {
-            fontSize: 20,
-            fontWeight: 'bold',
-        }
     }
 )

@@ -20,7 +20,7 @@ export default GrammarScreen = ({ navigation }) => {
             {data.grammar.map((item, index) =>
             (
                 <Pressable
-                    key={index.toString()}
+                    key={item.id}
                     onPress={() => navigation.navigate('GrammarDetail', { item })}>
                     <CustomBox2 title={item.grammar} desc={item.meaning} />
                 </Pressable>

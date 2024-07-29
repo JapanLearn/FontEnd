@@ -21,7 +21,7 @@ export default HomeScreen = ({ navigation }) => {
                             <Text style={styles.buttontxt}>Hira</Text>
                         </View>
                         <View style={styles.buttonCtn}>
-                            <Pressable onPress={() => navigation.navigate('Alphabet')} style={styles.button} />
+                            <Pressable onPress={() => navigation.navigate('Katakana')} style={styles.button} />
                             <Text style={styles.buttontxt}>Kata</Text>
                         </View>
                         <View style={styles.buttonCtn}>
@@ -58,6 +58,25 @@ export default HomeScreen = ({ navigation }) => {
                         <View style={styles.buttonCtn}>
                             <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button} />
                             <Text style={styles.buttontxt}>N1</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+            <View style={styles.lowContainer}>
+                <View style={{ paddingTop: 10 }}>
+                    <Text style={styles.text}>Khác</Text>
+                    <View style={styles.row}>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Đăng nhập</Text>
+                        </View>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Đăng kí</Text>
+                        </View>
+                        <View style={styles.buttonCtn}>
+                            <Pressable onPress={() => navigation.navigate('Setting')} style={styles.button} />
+                            <Text style={styles.buttontxt}>Cài đặt</Text>
                         </View>
                     </View>
                 </View>

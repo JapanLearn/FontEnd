@@ -24,16 +24,16 @@ export default KanjiCustomBox = ({ pronounce, title, desc, ...props }) => {
 
 const styles = StyleSheet.create({
     container: {
-        shadowColor: '#171717',
-        shadowOffset: { width: 2, height: 4 },
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        elevation: 5,
+        // shadowColor: '#171717',
+        // shadowOffset: { width: 2, height: 4 },
+        // shadowOpacity: 0.2,
+        // shadowRadius: 3,
+        // elevation: 5,
 
         width: 325,
         height: 70,
         borderRadius: 10,
-        backgroundColor: 'white',
+        backgroundColor: Theme.colors.secondary,
         marginVertical: 10,
         flexDirection: 'row',
         padding: 10,
