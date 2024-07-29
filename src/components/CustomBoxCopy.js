@@ -1,21 +1,23 @@
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native"
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native"
 import { Theme } from "../../assets/Theme"
 
-export default CustomBoxCopy = ({ keyWord, japanWord, desc, ...props }) => {
+export default CustomBoxCopy = ({ latinWords, hiraganaWords, vietWords, playSound, onPress, ...props }) => {
     return (
-        <View style={styles.container}>
-            <View style={styles.content}>
-                <View style={styles.name}>
-                    <Text style={styles.keyWord}>{keyWord}</Text>
-                    <Text style={styles.japanWord}>{japanWord}</Text>
+        <View style={styles.container} >
+            <TouchableOpacity style={styles.arenaContent} onPress={onPress}>
+                <View style={styles.content}>
+                    <Text style={styles.latinWords} numberOfLines={1}>{latinWords}</Text>
+                    <Text style={styles.hiraganaWords} numberOfLines={1}>{hiraganaWords}</Text>
                 </View>
                 <View style={styles.line} />
-                <View style={styles.mota}>
-                    <Text style={styles.desc}>{desc}</Text>
+                <View style={styles.description}>
+                    <Text style={styles.vietWords} numberOfLines={1}>{vietWords}</Text>
                 </View>
-            </View>
-            <View style={styles.music}>
-                <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
+            </TouchableOpacity>
+            <View style={styles.arenaPlayButton}>
+                <TouchableOpacity onPress={playSound}>
+                    <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -29,9 +31,8 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 5,
 
-        minHeight: 190,
-        // width: 325,
-        width: "100%",
+        minHeight: 100,
+        width: "80%",
         borderRadius: 10,
         backgroundColor: 'white',
         paddingHorizontal: 10,
@@ -41,13 +42,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
 
     },
-    content: {
+    arenaContent: {
         flex: 3,
         height: '100%',
-        
-
     },
-    music: {
+    arenaPlayButton: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -57,29 +56,25 @@ const styles = StyleSheet.create({
         height: 30,
     },
 
-    name: {
+    content: {
         flex: 2,
         justifyContent: 'flex-start',
-        alignItems: 'center',
         flexDirection: 'column',
-        borderBottomColor:'red',
+        borderBottomColor: 'red',
         borderBottomWidth: 1,
-        borderColor:'gray'
+        borderColor: 'gray'
     },
-    mota: {
+    description: {
         flex: 1,
-        // alignItems:'center',
         justifyContent: 'flex-end',
     },
-    keyWord: {
+    latinWords: {
         fontSize: 16,
         fontWeight: 'bold',
         marginRight: 5,
-        // textAlign: 'center',
     },
-    desc: {
+    vietWords: {
         fontSize: 14,
         color: '#808080',
-        // textAlign: 'center',
     }
 })
