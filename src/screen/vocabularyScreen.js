@@ -12,7 +12,7 @@ export default VocabularyScreen = ({ navigation }) => {
             </View>
             {data.vocabulary.map((item, index) =>
             (
-                <CustomBox title={item.word} desc={item.meaning} />
+                <CustomBox key={item.id} title={item.word} desc={item.meaning} />
             ))}
         </ScrollView>
     )

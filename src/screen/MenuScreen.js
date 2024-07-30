@@ -27,9 +27,20 @@ export default MenuScreen = ({ navigation, api, ...props }) => {
         </Pressable>
     )
 
+    const CustomLesson1 = ({ title }) => (
+        <Pressable onPress={() => navigation.navigate('Lesson1')}>
+            <View style={styles.view}>
+                <Text style={styles.view_title}>{title}</Text>
+                <View style={styles.view_image}>
+                    <Image source={require('../../assets/right-arrow.png')} style={{ width: 16, height: 16 }} />
+                </View>
+            </View>
+        </Pressable>
+    )
+
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <View1 title={'Bài 1'} />
+            <CustomLesson1 title={'Bài 1'} />
             <View1 title={'Bài 2'} />
             <View1 title={'Bài 3'} />
             <View1 title={'Bài 4'} />

@@ -13,7 +13,7 @@ const KanjiScreen = ({ navigation }) => {
                 <TextInput style={styles.searchInput} />
             </View>
             {data.Kanji.map((item, index) => (
-                <KanjiCustomBox key={index} title={item.kanji} desc={item.meaning} pronounce={item.pronounce} />
+                <KanjiCustomBox key={item.id} title={item.kanji} desc={item.meaning} pronounce={item.pronounce} />
             ))}
         </ScrollView>
     );

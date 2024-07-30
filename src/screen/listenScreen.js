@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, Button, TouchableOpacity, Text, Image, Modal } from 'react-native';
+import { View, StyleSheet, Button, TouchableOpacity, Text, Image, Modal, ScrollView } from 'react-native';
 import { Audio } from 'expo-av';
 import CustomBoxCopy from '../components/CustomBoxCopy';
+import data from '../data/listen.json';
+import audioMap from '../components/audioMap';
 export default ListenScreen = () => {
   const [sound, setSound] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [model, setModel] = useState({ latinWords: '', hiraganaWords: '', vietWords: '', filename: '' });
 
-  async function playSound() {
-    console.log('Loading Sound');
-    const { sound } = await Audio.Sound.createAsync(require('../components/1-1.mp3')
-    );
+  async function playSound(filename) {
+    let filepath = '../components/1-1.mp3'
+    const soundModule = await import(filepath);
+    const { sound } = await Audio.Sound.createAsync(audioMap[filename]);
     setSound(sound);
     setIsPlaying(true);
 
@@ -25,7 +28,6 @@ export default ListenScreen = () => {
     }
   }
 
-
   useEffect(() => {
     return sound
       ? () => {
@@ -35,13 +37,28 @@ export default ListenScreen = () => {
       : undefined;
   }, [sound]);
 
+  const CustomView = ({ latinWords, hiraganaWords, vietWords, filename }) => (
+    <View>
+      <CustomBoxCopy
+        onPress={() => {
+          setModel({latinWords, hiraganaWords, vietWords, filename});
+          setOpenModal(true)
+        }}
+        latinWords={latinWords}
+        hiraganaWords={hiraganaWords}
+        vietWords={vietWords}
+        filename={filename}
+        playSound={isPlaying ? stopSound : playSound} />
+    </View>
+  )
+
   return (
-    <View style={styles.container}>
-      <CustomBoxCopy onPress={() => setOpenModal(true)} latinWords={'Ohayo gozaimasu'} hiraganaWords={'おはようございうございうございうございうございます'} vietWords={'Chào buổi sáng'} playSound={isPlaying ? stopSound : playSound} />
+    <ScrollView contentContainerStyle={styles.container}>
+      {data.map((item) => <CustomView latinWords={item.latinWords} hiraganaWords={item.hiraganaWords} vietWords={item.vietWords} filename={item.filename} />)}
       <Modal visible={openModal} transparent={true}>
         <View style={styles.content}>
           <View style={styles.card}>
-            <Text style={styles.title}>Ohayo gozaimasu</Text>
+            <Text style={styles.title}>{model.latinWords}</Text>
             <Text style={styles.desc}>
               おはようございうございうございうございうございます
             </Text>
@@ -57,7 +74,7 @@ export default ListenScreen = () => {
           </View>
         </View>
       </Modal>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -80,7 +97,8 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
+    width: '100%',
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.5)",
   },
@@ -98,8 +116,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   container: {
-    flex: 1,
-    alignItems:'center',
+    flexGrow: 1,
+    width: '100%',
+    alignItems: 'center',
     backgroundColor: '#ecf0f1',
     padding: 10,
   },

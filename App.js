@@ -16,6 +16,7 @@ import Hiragana from './src/screen/Hiragana';
 import Katakana from './src/screen/Katakana';
 import { Theme } from './assets/Theme';
 import SettingsScreen from './src/screen/SettingsScreen';
+import lesson1Screen from './src/screen/lesson1Screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,7 @@ export default function App() {
         <Stack.Screen name="Listen" options={{ title: 'Listen Screen' }} component={listenScreen} />
         <Stack.Screen name="Test" options={{ title: 'Test Screen' }} component={testScreen} />
         <Stack.Screen name="Setting" options={{ title: 'Setting Screen' }} component={SettingsScreen} />
+        <Stack.Screen name="Lesson1" options={{ title: 'Lesson 1' }} component={lesson1Screen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
