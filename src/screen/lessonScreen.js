@@ -1,7 +1,6 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native"
-import CustomBox2 from "../components/CustomBox2"
 import { Theme } from "../../assets/Theme"
-import Header from "../components/Header"
+
 
 export default LessonScreen = ({ navigation }) => {
     const CustomView = ({ text, icon }) =>
@@ -9,7 +8,6 @@ export default LessonScreen = ({ navigation }) => {
         <View style={styles.viewCircle}>
             <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
         </View>
-
         <Text style={styles.viewText}>{text}</Text>
     </View>)
 
@@ -57,21 +55,23 @@ const styles = StyleSheet.create({
 
         width: 140,
         height: 140,
-        marginTop: 25,
         borderRadius: 10,
         // justifyContent: 'flex-end',
         // alignItems: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: Theme.colors.primary,
     },
     coll: {
         width: "100%",
         flexDirection: 'row',
+        borderWidth: 1,
+        justifyContent: 'space-evenly',
+        margin: 5,
     },
     viewText: {
-        flex:1,
+        flex: 1,
         // backgroundColor:'green',
-        paddingLeft:10,
-        paddingTop:10,
+        paddingLeft: 10,
+        paddingTop: 10,
         fontWeight: 'bold',
         fontSize: Theme.fontSizes.medium,
     },
@@ -79,9 +79,9 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
     },
-    viewCircle:{
+    viewCircle: {
         justifyContent: 'center',
-        alignItems:'center',
-        flex:3,
+        alignItems: 'center',
+        flex: 3,
     }
 })

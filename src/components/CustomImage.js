@@ -24,23 +24,35 @@ const CustomImage = ({ source }) => {
 
     const getImageSize = (uri) => {
         return new Promise((resolve, reject) => {
-            Image.getSize(uri, (width, height) => {
-                resolve({ width, height });
-            }, (error) => {
-                console.error('Failed to get image size', error);
-                reject(error);
-            });
+            Image.getSize(
+                uri,
+                (width, height) => {
+                    resolve({ width, height });
+                },
+                (error) => {
+                    console.error('Failed to get image size', error);
+                    reject(error);
+                }
+            );
         });
     };
 
     if (!source || !source.uri || ratio === null) {
-        return <View style={{ width: screenWidth, height: screenWidth / 2, backgroundColor: 'gray' }} />;
+        return (
+            <View
+                style={{
+                    width: screenWidth,
+                    height: screenWidth / 2,
+                    backgroundColor: 'gray',
+                }}
+            />
+        );
     }
 
     return (
         <Image
             source={source}
-            style={{ width: '100%', aspectRatio: ratio, borderBottomWidth: 1, }}
+            style={{ width: '100%', aspectRatio: ratio, borderWidth: 1 }}
             resizeMode="contain"
         />
     );
