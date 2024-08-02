@@ -16,7 +16,7 @@ const colors = {
 const fontSizes = {
     small: 12,
     medium: 14,
-    large: 20,
+    large: 18,
 };
 
 const fontFamily = {
