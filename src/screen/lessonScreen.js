@@ -1,87 +1,85 @@
-import { Pressable, StyleSheet, Text, View, Image } from "react-native"
-import CustomBox2 from "../components/CustomBox2"
-import { Theme } from "../../assets/Theme"
-import Header from "../components/Header"
+import { Pressable, StyleSheet, Text, View, Image } from "react-native";
+import { Theme } from "../../assets/Theme";
 
 export default LessonScreen = ({ navigation }) => {
-    const CustomView = ({ text, icon }) =>
-    (<View style={styles.view}>
-        <View style={styles.viewCircle}>
-            <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
+    const CustomView = ({ text, icon }) => (
+        <View style={styles.view}>
+            <View style={styles.viewCircle}>
+                {/* <Image source={require('../../assets/headphone.png')} style={styles.viewImage} /> */}
+            </View>
+            <Text style={styles.viewText}>{text}</Text>
         </View>
-
-        <Text style={styles.viewText}>{text}</Text>
-    </View>)
-
+    );
 
     return (
         <View style={styles.container}>
-            <View style={styles.coll}>
-                <Pressable onPress={() => navigation.navigate('Vocabulary')} style={{ marginLeft: 35 }}>
-                    <CustomView text={'Từ vựng'} icon={'headphone'} />
+            <View style={styles.grid}>
+                <Pressable onPress={() => navigation.navigate('Vocabulary')}>
+                    <CustomView text={'Từ vựng'} />
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Grammar')} style={{ marginLeft: 'auto', marginRight: 35, }}>
-                    <CustomView text={'Ngữ pháp'} icon={'headphone'} />
+                <Pressable onPress={() => navigation.navigate('Grammar')}>
+                    <CustomView text={'Ngữ pháp'} />
                 </Pressable>
-            </View>
-            <View style={styles.coll}>
-                <Pressable onPress={() => navigation.navigate('Kanji')} style={{ marginLeft: 35 }}>
-                    <CustomView text={'Kanji'} icon={'headphone'} />
+                <Pressable onPress={() => navigation.navigate('Kanji')}>
+                    <CustomView text={'Kanji'} />
                 </Pressable>
-                <Pressable onPress={() => navigation.navigate('Listen')} style={{ marginLeft: 'auto', marginRight: 35, }}>
-                    <CustomView text={'Luyện nghe'} icon={'headphone'} />
+                <Pressable onPress={() => navigation.navigate('Listen')}>
+                    <CustomView text={'Luyện nghe'} />
                 </Pressable>
-            </View>
-            <View style={styles.coll}>
-                <Pressable onPress={() => navigation.navigate('Test')} style={{ marginLeft: 35 }}>
-                    <CustomView text={'Test'} icon={'headphone'} />
+                <Pressable onPress={() => navigation.navigate('Test')}>
+                    <CustomView text={'Test'} />
                 </Pressable>
+                <Pressable onPress={() => navigation.navigate('Test')}>
+                    <CustomView text={'More'} />
+                </Pressable>
+
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        backgroundColor: Theme.colors.background,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    grid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        height: '100%',
-        backgroundColor: Theme.colors.background,
+        padding: 10,
     },
     view: {
+        width: 140,
+        height: 140,
+        margin: 10,
+        borderRadius: 10,
+        backgroundColor: Theme.colors.primary,
         shadowColor: '#171717',
         shadowOffset: { width: 2, height: 4 },
         shadowOpacity: 0.2,
         shadowRadius: 3,
         elevation: 5,
 
-        width: 140,
-        height: 140,
-        marginTop: 25,
-        borderRadius: 10,
-        // justifyContent: 'flex-end',
-        // alignItems: 'center',
-        backgroundColor: '#fff'
-    },
-    coll: {
-        width: "100%",
-        flexDirection: 'row',
     },
     viewText: {
-        flex:1,
-        // backgroundColor:'green',
-        paddingLeft:10,
-        paddingTop:10,
+        flex: 1,
+        paddingLeft: 10,
+        paddingTop: 10,
         fontWeight: 'bold',
-        fontSize: Theme.fontSizes.medium,
+        fontSize: Theme.fontSizes.large,
     },
     viewImage: {
         width: 30,
         height: 30,
     },
-    viewCircle:{
+    viewCircle: {
         justifyContent: 'center',
-        alignItems:'center',
-        flex:3,
+        alignItems: 'center',
+        flex: 3
     }
-})
+});

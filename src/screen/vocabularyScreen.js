@@ -12,7 +12,7 @@ export default VocabularyScreen = ({ navigation }) => {
             </View>
             {data.vocabulary.map((item, index) =>
             (
-                <CustomBox title={item.word} desc={item.meaning} />
+                <CustomBox key={item.id} title={item.word} desc={item.meaning} />
             ))}
         </ScrollView>
     )
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         width: '100%',
-        backgroundColor: Theme.colors.background
+        backgroundColor: Theme.colors.background,
     },
     searchBox: {
         width: "70%",
@@ -33,15 +33,15 @@ const styles = StyleSheet.create({
         paddingVertical: 13,
         marginVertical: 7,
         flexDirection: 'row',
-        textAlign:'center',
-        alignItems:'center',
+        textAlign: 'center',
+        alignItems: 'center',
         // justifyContent:'center'
     },
     searchInput: {
         color: '#FFF8F3',
         fontSize: Theme.fontSizes.medium,
         marginLeft: 10,
-        width : 250,
+        width: 250,
     },
     image: {
         width: 25,

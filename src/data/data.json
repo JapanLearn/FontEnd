@@ -96,12 +96,13 @@
         },
         {
             "id": 1,
-            "kanji": "二",
+            "kanji": "ー",
             "pronounce": [
-                "ふたつ",
-                "二"
+                "ひとつ",
+                "イチ",
+                "イチ"
             ],
-            "meaning": "Hai"
+            "meaning": "Một"
         },
         {
             "id": 2,

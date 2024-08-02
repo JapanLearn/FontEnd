@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native"
 import { Theme } from "../../assets/Theme"
 
-export default CustomBoxCopy = ({ latinWords, hiraganaWords, vietWords, playSound, onPress, ...props }) => {
+export default CustomBoxCopy = ({ latinWords, hiraganaWords, vietWords, playSound, filename, onPress, ...props }) => {
     return (
         <View style={styles.container} >
             <TouchableOpacity style={styles.arenaContent} onPress={onPress}>
@@ -15,7 +15,7 @@ export default CustomBoxCopy = ({ latinWords, hiraganaWords, vietWords, playSoun
                 </View>
             </TouchableOpacity>
             <View style={styles.arenaPlayButton}>
-                <TouchableOpacity onPress={playSound}>
+                <TouchableOpacity onPress={() => playSound(filename)}>
                     <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
                 </TouchableOpacity>
             </View>

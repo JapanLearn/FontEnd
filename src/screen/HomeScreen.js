@@ -1,20 +1,47 @@
 import { Text, Pressable, View, StyleSheet, ScrollView } from "react-native"
 import { Theme } from "../../assets/Theme";
+import UserItem from "../components/HomeScreen/UserItem";
 
 const user = {
-    username: 'Nguyễn Trần Đình Quân'
+    name: 'John Doe', email: 'john@example.com'
 }
 
 export default HomeScreen = ({ navigation }) => {
+    const Item = ({ title }) => (
+        <View style={{
+            borderWidth: 1,
+            margin: 10,
+            padding: 10,
+            height: 100,
+            borderRadius: 10,
+            borderColor: Theme.colors.border,
+            backgroundColor: Theme.colors.primary,
+            flexDirection: 'row',
+        }}>
+            <Text style={{
+                width: 80,
+                textAlignVertical: 'center',
+                textAlign: 'center',
+                fontSize: 24,
+                fontWeight: 'bold',
+                fontFamily: 'monospace',
+                color: Theme.colors.text,
+            }}>{title}</Text>
+            <Text>Ghi cái gì đó ở bên này</Text>
+
+        </View>
+    )
+
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.userCard}>
-                <Text style={styles.userCardtxt}>Xin chào</Text>
-                <Text style={styles.userCardtxt}>{user.username}</Text>
-            </View>
+            <UserItem user={user} />
             <View style={styles.lowContainer}>
                 <View style={{ paddingTop: 10 }}>
-                    <Text style={styles.text}>Khóa học</Text>
+                    {/* <Text style={styles.text}>Khóa học</Text>
+                    <Item title={'N5'} />
+                    <Item title={'N4'} />
+                    <Item title={'N3'} />
+                    <Item title={'N2'} /> */}
                     <View style={styles.row}>
                         <View style={styles.buttonCtn}>
                             <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button} />
@@ -39,7 +66,6 @@ export default HomeScreen = ({ navigation }) => {
                     </View>
                 </View>
             </View>
-
         </ScrollView>
     )
 }
@@ -48,19 +74,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: Theme.colors.background,
-    },
-    userCard: {
-        backgroundColor: Theme.colors.secondary,
-        width: '100%',
-        height: 100,
-        paddingTop: 10,
-        paddingLeft: 10
-    },
-    userCardtxt: {
-        fontSize: Theme.fontSizes.medium,
-        fontWeight: 'bold',
-        fontFamily: 'monospace',
-
     },
     lowContainer: {
         paddingTop: 25,
@@ -97,7 +110,9 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: Theme.colors.secondary,
+        backgroundColor: Theme.colors.primary,
+        borderWidth: 1,
+        borderColor: Theme.colors.border,
         borderRadius: 5,
         marginHorizontal: 5,
         marginTop: 10,

@@ -12,7 +12,7 @@ export default Article = ({ title, content, ...props }) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: '80%',
+        width: '90%',
         padding: 5,
         marginTop: 3,
     },
