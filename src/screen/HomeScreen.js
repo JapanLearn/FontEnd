@@ -37,11 +37,11 @@ export default HomeScreen = ({ navigation }) => {
             <UserItem user={user} />
             <View style={styles.lowContainer}>
                 <View style={{ paddingTop: 10 }}>
-                    <Text style={styles.text}>Khóa học</Text>
+                    {/* <Text style={styles.text}>Khóa học</Text>
                     <Item title={'N5'} />
                     <Item title={'N4'} />
                     <Item title={'N3'} />
-                    <Item title={'N2'} />
+                    <Item title={'N2'} /> */}
                     <View style={styles.row}>
                         <View style={styles.buttonCtn}>
                             <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button} />
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     button: {
-        width: 75,
-        height: 75,
+        width: 50,
+        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Theme.colors.primary,
