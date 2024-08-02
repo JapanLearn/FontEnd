@@ -1,30 +1,43 @@
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, Button, TouchableOpacity, Text, Image, Modal, ScrollView } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Image, Modal, ScrollView } from 'react-native';
 import { Audio } from 'expo-av';
 import CustomBoxCopy from '../components/CustomBoxCopy';
 import data from '../data/listen.json';
 import audioMap from '../components/audioMap';
+
 export default ListenScreen = () => {
   const [sound, setSound] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [model, setModel] = useState({ latinWords: '', hiraganaWords: '', vietWords: '', filename: '' });
+  const [currentItem, setCurrentItem] = useState(null);
 
   async function playSound(filename) {
-    let filepath = '../components/1-1.mp3'
-    const soundModule = await import(filepath);
-    const { sound } = await Audio.Sound.createAsync(audioMap[filename]);
-    setSound(sound);
-    setIsPlaying(true);
-
-    console.log('Playing Sound');
-    await sound.playAsync();
+    try {
+      const audioFile = audioMap[filename];
+      if (!audioFile) {
+        console.error('Audio file not found for:', filename);
+        return;
+      }
+      const { sound } = await Audio.Sound.createAsync(audioFile);
+      setSound(sound);
+      setIsPlaying(true);
+      console.log('Playing Sound');
+      await sound.playAsync();
+    } catch (error) {
+      console.error('Error playing sound:', error);
+    }
   }
+
+
   async function stopSound() {
-    if (isPlaying) {
-      console.log('Stopping Sound');
-      await sound.pauseAsync();
-      setIsPlaying(false);
+    if (isPlaying && sound) {
+      try {
+        console.log('Stopping Sound');
+        await sound.pauseAsync();
+        setIsPlaying(false);
+      } catch (error) {
+        console.error('Error stopping sound:', error);
+      }
     }
   }
 
@@ -37,44 +50,49 @@ export default ListenScreen = () => {
       : undefined;
   }, [sound]);
 
-  const CustomView = ({ latinWords, hiraganaWords, vietWords, filename }) => (
-    <View>
-      <CustomBoxCopy
-        onPress={() => {
-          setModel({latinWords, hiraganaWords, vietWords, filename});
-          setOpenModal(true)
-        }}
-        latinWords={latinWords}
-        hiraganaWords={hiraganaWords}
-        vietWords={vietWords}
-        filename={filename}
-        playSound={isPlaying ? stopSound : playSound} />
-    </View>
-  )
+  const handlePress = (item) => {
+
+    setCurrentItem(item);
+    setOpenModal(true);
+  };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {data.map((item) => <CustomView latinWords={item.latinWords} hiraganaWords={item.hiraganaWords} vietWords={item.vietWords} filename={item.filename} />)}
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        {data.map((item) => (
+          <CustomBoxCopy
+            key={item.filename}
+            onPress={() => handlePress(item)}
+            latinWords={item.latinWords}
+            hiraganaWords={item.hiraganaWords}
+            vietWords={item.vietWords}
+            filename={item.filename}
+            playSound={isPlaying ? stopSound : playSound}
+          />
+        ))}
+      </ScrollView>
+
       <Modal visible={openModal} transparent={true}>
         <View style={styles.content}>
-          <View style={styles.card}>
-            <Text style={styles.title}>{model.latinWords}</Text>
-            <Text style={styles.desc}>
-              おはようございうございうございうございうございます
-            </Text>
-            <Text style={styles.desc}>
-              Chào buổi sáng
-            </Text>
-            <TouchableOpacity onPress={playSound}>
-              <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.button, { width: "100%", marginTop: 24, backgroundColor: "rgba(0,0,0,0.1)", },]} onPress={() => setOpenModal(false)}>
-              <Text style={[styles.text, { color: "black" }]}>Close</Text>
-            </TouchableOpacity>
-          </View>
+          {currentItem && (
+            <View style={styles.card}>
+              <Text style={styles.title}>{currentItem.latinWords}</Text>
+              <Text style={styles.desc}>{currentItem.hiraganaWords}</Text>
+              <Text style={styles.desc}>{currentItem.vietWords}</Text>
+              <TouchableOpacity onPress={() => playSound(currentItem.filename)} style={{alignItems:'center'}}>
+                <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.button, { width: "100%", marginTop: 24, backgroundColor: "rgba(0,0,0,0.1)" }]}
+                onPress={() => setOpenModal(false)}
+              >
+                <Text style={[styles.text, { color: "black" }]}>Close</Text>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       </Modal>
-    </ScrollView>
+    </View>
   );
 }
 
@@ -93,7 +111,7 @@ const styles = StyleSheet.create({
     width: "90%",
     padding: 20,
     backgroundColor: "white",
-    borderRadius: 8,
+    borderRadius: 8
   },
   content: {
     flex: 1,
@@ -114,16 +132,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 40,
     borderRadius: 8,
+    marginTop: 20,
   },
   container: {
-    flexGrow: 1,
+    flex: 1,
     width: '100%',
     alignItems: 'center',
     backgroundColor: '#ecf0f1',
     padding: 10,
   },
+  scrollContainer: {
+    flexGrow: 1,
+    width: '100%',
+  },
   viewImage: {
     width: 30,
-    height: 30
+    height: 30,
   }
+  
 });
