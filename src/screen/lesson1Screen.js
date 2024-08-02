@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
     },
     button: {
-        width: 50,
-        height: 50,
+        width: 70,
+        height: 70,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Theme.colors.secondary,
