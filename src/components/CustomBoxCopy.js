@@ -4,6 +4,7 @@ import { Theme } from "../../assets/Theme"
 export default CustomBoxCopy = ({ latinWords, hiraganaWords, vietWords, playSound, filename, onPress, ...props }) => {
     return (
         <View style={styles.container} >
+            <Text>aa : {filename}</Text>
             <TouchableOpacity style={styles.arenaContent} onPress={onPress}>
                 <View style={styles.content}>
                     <Text style={styles.latinWords} numberOfLines={1}>{latinWords}</Text>
