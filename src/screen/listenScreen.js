@@ -13,6 +13,7 @@ export default ListenScreen = () => {
 
   async function playSound(filename) {
     try {
+      console.log('file name ' + filename);
       const audioFile = audioMap[filename];
       if (!audioFile) {
         console.error('Audio file not found for:', filename);
@@ -66,7 +67,7 @@ export default ListenScreen = () => {
             latinWords={item.latinWords}
             hiraganaWords={item.hiraganaWords}
             vietWords={item.vietWords}
-            filename={item.filename}
+            filename={item.path}
             playSound={isPlaying ? stopSound : playSound}
           />
         ))}
@@ -79,7 +80,7 @@ export default ListenScreen = () => {
               <Text style={styles.title}>{currentItem.latinWords}</Text>
               <Text style={styles.desc}>{currentItem.hiraganaWords}</Text>
               <Text style={styles.desc}>{currentItem.vietWords}</Text>
-              <TouchableOpacity onPress={() => playSound(currentItem.filename)} style={{alignItems:'center'}}>
+              <TouchableOpacity onPress={() => playSound(currentItem.filename)} style={{ alignItems: 'center' }}>
                 <Image source={require('../../assets/headphone.png')} style={styles.viewImage} />
               </TouchableOpacity>
               <TouchableOpacity
@@ -149,5 +150,5 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
   }
-  
+
 });
