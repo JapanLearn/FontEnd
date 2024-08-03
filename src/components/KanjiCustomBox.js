@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet } from "react-native"
 import { Theme } from "../../assets/Theme"
-import Line from "./Line"
 
 export default KanjiCustomBox = ({ pronounce, title, desc, ...props }) => {
     return (
@@ -8,9 +7,9 @@ export default KanjiCustomBox = ({ pronounce, title, desc, ...props }) => {
             <Text style={styles.title}>{title}</Text>
             <View style={{ borderLeftWidth: 0.5, paddingLeft: 20, }}>
                 <View style={{ flexDirection: 'row', }}>
-                    {pronounce.map((item) =>
+                    {pronounce.map((item, index) =>
                     (
-                        <View style={{ flexDirection: 'row' }}>
+                        <View key={index} style={{ flexDirection: 'row' }}>
                             <Text style={styles.pronounce}>{item}</Text>
                             <Text style={{ marginHorizontal: 5 }}>/</Text>
                         </View>

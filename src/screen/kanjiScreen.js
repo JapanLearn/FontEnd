@@ -12,9 +12,17 @@ const KanjiScreen = ({ navigation }) => {
                 <Image source={require('../../assets/search.png')} style={styles.image} />
                 <TextInput style={styles.searchInput} />
             </View>
-            {data.Kanji.map((item, index) => (
-                <KanjiCustomBox key={item.id} title={item.kanji} desc={item.meaning} pronounce={item.pronounce} />
-            ))}
+            {data.Kanji.map((item) => {
+                console.log(item.id);
+                return (
+                    <KanjiCustomBox 
+                    key={item.id} 
+                    title={item.kanji} 
+                    desc={item.meaning} 
+                    pronounce={item.pronounce} />
+                )
+                
+            })}
         </ScrollView>
     );
 };

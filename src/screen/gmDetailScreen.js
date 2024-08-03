@@ -13,11 +13,11 @@ export default GmDetailScreen = ({ route }) => {
         <ScrollView contentContainerStyle={styles.container}>
             <GrammarBox title={grammar} />
             {
-                itemWithId1.articles.map((item) => {
+                itemWithId1.articles.map((item, index) => {
                     if (item.type === 'article') {
-                        return <Article title={item.title} content={item.content} />;
+                        return <Article key={index} title={item.title} content={item.content} />;
                     } else if (item.type === 'img') {
-                        return <CustomImage source={{ uri: item.url }} />;
+                        return <CustomImage key={index} source={{ uri: item.url }} />;
                     }
                     return null;
                 })
