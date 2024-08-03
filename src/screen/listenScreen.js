@@ -62,7 +62,7 @@ export default ListenScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {data.map((item) => (
           <CustomBoxCopy
-            key={item.filename}
+            key={item.id}
             onPress={() => handlePress(item)}
             latinWords={item.latinWords}
             hiraganaWords={item.hiraganaWords}
